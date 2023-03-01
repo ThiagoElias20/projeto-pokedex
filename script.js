@@ -14,13 +14,24 @@ function pokeapi(e) {
       </div>
       <div class="infoPokemon">
         <h1>${data.name}</h1>
-        <p>Peso: ${data.weight}</p>
+        <p>Peso: ${data.weight / 10}kg</p>
         <p>Tipo: ${data.types[0].type.name}</p>
+        <p id="alturaPokemon">Altura: ${data.height / 10} metros</p>
+        <label><strong>Sprite:</strong></label>
+        <div>
+        <img src="${data.sprites.front_default}" alt="sprite">
+      </div>  
+      <h1>Habilidades</h1>
+        <ul>
+          <li>${data.abilities[0].ability.name}</li>
+          <li>${data.abilities[1].ability.name}</li>
+        </ul>
       </div>
       `;
     })
     .catch((err) => {
-      console.log("Pokemon not found", err);
+      console.error("Pokemon not found", err);
     });
 
+    document.querySelector('#alturaPokemon').innerHTML = `oiiii`
 }
