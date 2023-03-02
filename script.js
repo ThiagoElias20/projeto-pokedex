@@ -6,6 +6,9 @@ function pokeapi(e) {
 
     fetch(`https://pokeapi.co/api/v2/pokemon/${nome}`)
     .then((response) => {
+      if (!response.ok) {
+        throw new Error('Pokemon não encontrado');
+      }
       return response.json();
     }).then((data) => {
       document.querySelector('#caixaPokemon').innerHTML = `
@@ -45,6 +48,50 @@ function pokeapi(e) {
       console.error("Pokemon not found", err);
     });
 
+    for (let i = 1; i < 200; i++) {
+      (function (i) {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Pokemon not found');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            let listul = document.querySelector('.listagemPokemon');
+            let listli = document.createElement('li');
+            let img = document.createElement('img');
+
+            img.src = data.sprites.front_default;
+            img.alt = data.name;
+            listli.appendChild(img);
+            listul.appendChild(listli);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      })(i);
+    }
+
+    /*
+    for (let i = 1; i < 200; i++) {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Pokemon not found');
+        }
+        return response.json();
+      }) .then((data) => {
+        let listul = document.querySelector('.listagemPokemon');
+        let listli = document.createElement('li');
+
+        listli.appendChild(document.createTextNode(`https://pokeapi.co/api/v2/pokemon/${i}`))
+        listul.appendChild(listli);
+      }).catch((err) => {
+        console.error(err);
+      });
+    }
+    */
 }
 
 //Comentei e estou estilizando
