@@ -24,7 +24,8 @@ function pokeapi(e) {
       <h1>Habilidades</h1>
         <ul>
           <li>${data.abilities[0].ability.name}</li>
-          <li>${data.abilities[1].ability.name}</li>
+          ${data.abilities.length > 1 ? 
+        `<li id="movespoke">${data.abilities[1].ability.name}</li>` : ''}
         </ul>
         
         <h1>Ataques iniciais</h1>
@@ -45,3 +46,5 @@ function pokeapi(e) {
     });
 
 }
+
+//Comentei e estou estilizando
