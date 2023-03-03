@@ -53,7 +53,7 @@ function pokeapi(e) {
         fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
           .then((response) => {
             if (!response.ok) {
-              throw new Error('Pokemon not found');
+              throw new Error('Pokemon não encontrado');
             }
             return response.json();
           })
@@ -61,17 +61,24 @@ function pokeapi(e) {
             let listul = document.querySelector('.listagemPokemon');
             let listli = document.createElement('li');
             let img = document.createElement('img');
+            let label = document.createElement('label');
 
+            label.innerHTML = data.name;
             img.src = data.sprites.front_default;
             img.alt = data.name;
             listli.appendChild(img);
+            listli.appendChild(label);
             listul.appendChild(listli);
           })
           .catch((err) => {
             console.error(err);
           });
       })(i);
+
+      
     }
+
+ //Proximo passo é ordenar a listagem
 
     /*
     for (let i = 1; i < 200; i++) {
