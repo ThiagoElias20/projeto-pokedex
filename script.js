@@ -13,24 +13,30 @@ function pokeapi(e) {
     }).then((data) => {
       document.querySelector('#caixaPokemon').innerHTML = `
       <div>
-        <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon">
+        <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto">
       </div>
       <div class="infoPokemon">
-        <h1>${data.name}</h1>
+        <h1 class="nome-poke">${data.name}</h1>
+        <div class="poke-descricoes"> 
         <p>Peso: ${data.weight / 10}kg</p>
         <p>Tipo: ${data.types[0].type.name}</p>
-        <p id="alturaPokemon">Altura: ${data.height / 10} metros</p>
+        <p id="alturaPokemon">Altura: ${data.height / 10} metros</p> </div>
+
+        <div class="poke-sprite">
         <label><strong>Sprite:</strong></label>
-        <div>
         <img src="${data.sprites.front_default}" alt="sprite">
       </div>  
+
+      <div class="poke-habilidades"> 
       <h1>Habilidades</h1>
         <ul>
           <li>${data.abilities[0].ability.name}</li>
           ${data.abilities.length > 1 ? 
         `<li id="movespoke">${data.abilities[1].ability.name}</li>` : ''}
         </ul>
-        
+      </div>
+
+        <div class="poke-ataques">
         <h1>Ataques iniciais</h1>
         <ul>
         <li id="movespoke">${data.moves[0].move.name}</li>
@@ -41,8 +47,11 @@ function pokeapi(e) {
         `<li id="movespoke">${data.moves[3].move.name}</li>`
          : ''}
         </ul>
+        </div>
       </div>
       `;
+
+      data.sprites.other['official-artwork'].front_default.classList.add("fotopoke");
     })
     .catch((err) => {
       console.error("Pokemon not found", err);
@@ -58,10 +67,12 @@ function pokeapi(e) {
             return response.json();
           })
           .then((data) => {
-            let listul = document.querySelector('.listagemPokemon');
+            let listul = document.querySelector('.listul');
             let listli = document.createElement('li');
             let img = document.createElement('img');
             let label = document.createElement('label');
+
+            listli.classList.add("listli");
 
             label.innerHTML = data.name;
             img.src = data.sprites.front_default;
@@ -75,30 +86,11 @@ function pokeapi(e) {
           });
       })(i);
 
-      
+
     }
 
  //Proximo passo é ordenar a listagem
 
-    /*
-    for (let i = 1; i < 200; i++) {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Pokemon not found');
-        }
-        return response.json();
-      }) .then((data) => {
-        let listul = document.querySelector('.listagemPokemon');
-        let listli = document.createElement('li');
-
-        listli.appendChild(document.createTextNode(`https://pokeapi.co/api/v2/pokemon/${i}`))
-        listul.appendChild(listli);
-      }).catch((err) => {
-        console.error(err);
-      });
-    }
-    */
 }
 
 //Comentei e estou estilizando

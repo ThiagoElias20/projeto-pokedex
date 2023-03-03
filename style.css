@@ -1,0 +1,27 @@
+.listul { /*ul das listas dos pokemons*/
+  background-color: brown;
+}
+
+.poke-foto { /*Foto do pokemon*/
+  background-color: greenyellow;
+}
+
+.nome-poke { /* h1 Nome do pokemon*/
+  background-color: rgb(121, 121, 216);
+}
+
+.poke-descricoes { /* Descrições, peso, tipo e altura. */
+  background-color: bisque;
+}
+
+.poke-sprite { /*sprite dos pokemons*/
+  background-color: blueviolet;
+}
+
+.poke-habilidades {
+  background-color: chocolate;
+}
+
+.poke-ataques {
+  background-color: rgb(100, 5, 5);
+}
