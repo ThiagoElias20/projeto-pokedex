@@ -12,12 +12,15 @@ function pokeapi(e) {
       return response.json();
     }).then((data) => {
       document.querySelector('#caixaPokemon').innerHTML = `
+      <h1 class="nome-poke">${data.name}</h1>
       <div>
         <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto">
       </div>
       <div class="infoPokemon">
-        <h1 class="nome-poke">${data.name}</h1>
-        <div class="poke-descricoes"> 
+
+        <div class="poke-descri-sprite"> 
+        <div class="poke-descricoes">
+        <h1>Descrição</h1>
         <p>Peso: ${data.weight / 10}kg</p>
         <p>Tipo: ${data.types[0].type.name}</p>
         <p id="alturaPokemon">Altura: ${data.height / 10} metros</p> </div>
@@ -25,7 +28,9 @@ function pokeapi(e) {
         <div class="poke-sprite">
         <label><strong>Sprite:</strong></label>
         <img src="${data.sprites.front_default}" alt="sprite">
-      </div>  
+      </div> 
+        </div>
+         
 
       <div class="poke-habilidades"> 
       <h1>Habilidades</h1>

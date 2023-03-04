@@ -1,9 +1,18 @@
+#caixaPokemon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .listul { /*ul das listas dos pokemons*/
   background-color: brown;
 }
 
 .poke-foto { /*Foto do pokemon*/
   background-color: greenyellow;
+  width: 300px;
+  height: 300px;
 }
 
 .nome-poke { /* h1 Nome do pokemon*/
@@ -16,6 +25,21 @@
 
 .poke-sprite { /*sprite dos pokemons*/
   background-color: blueviolet;
+  width: 96px;
+  height: 110px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.poke-sprite img {
+  width: 96px;
+  height: 96px;
+}
+
+.infoPokemon {
+  width: 400px;
 }
 
 .poke-habilidades {
@@ -24,4 +48,8 @@
 
 .poke-ataques {
   background-color: rgb(100, 5, 5);
+}
+
+.poke-descri-sprite {
+  display: flex;
 }
