@@ -12,9 +12,15 @@ function pokeapi(e) {
       return response.json();
     }).then((data) => {
       document.querySelector('#caixaPokemon').innerHTML = `
+      <div class="container-caixaPokemon">
       <h1 class="nome-poke">${data.name}</h1>
-      <div>
+
+      <div class="poke-imgs">
         <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto">
+        <div class="poke-sprite">
+        <label><strong>Sprite:</strong></label>
+        <img src="${data.sprites.front_default}" alt="sprite">
+      </div> 
       </div>
       <div class="infoPokemon">
 
@@ -23,23 +29,22 @@ function pokeapi(e) {
         <h1>Descrição</h1>
         <p>Peso: ${data.weight / 10}kg</p>
         <p>Tipo: ${data.types[0].type.name}</p>
-        <p id="alturaPokemon">Altura: ${data.height / 10} metros</p> </div>
+        <p id="alturaPokemon">Altura: ${data.height / 10} metros</p> 
 
-        <div class="poke-sprite">
-        <label><strong>Sprite:</strong></label>
-        <img src="${data.sprites.front_default}" alt="sprite">
-      </div> 
-        </div>
-         
-
-      <div class="poke-habilidades"> 
-      <h1>Habilidades</h1>
+        <p>Habilidades:</p>
         <ul>
           <li>${data.abilities[0].ability.name}</li>
           ${data.abilities.length > 1 ? 
         `<li id="movespoke">${data.abilities[1].ability.name}</li>` : ''}
         </ul>
-      </div>
+        </div>
+
+         
+        
+        
+        </div>
+         
+
 
         <div class="poke-ataques">
         <h1>Ataques iniciais</h1>
@@ -54,6 +59,7 @@ function pokeapi(e) {
         </ul>
         </div>
       </div>
+    </div>
       `;
 
       data.sprites.other['official-artwork'].front_default.classList.add("fotopoke");

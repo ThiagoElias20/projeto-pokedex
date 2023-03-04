@@ -5,6 +5,20 @@
   flex-direction: column;
 }
 
+.container-caixaPokemon {
+  width: 500px;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.poke-imgs {
+  display: flex;
+  flex-direction: row;
+}
+
 .listul { /*ul das listas dos pokemons*/
   background-color: brown;
 }
@@ -28,9 +42,6 @@
   width: 96px;
   height: 110px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .poke-sprite img {
