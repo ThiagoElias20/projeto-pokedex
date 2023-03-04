@@ -31,10 +31,13 @@
 
 .nome-poke { /* h1 Nome do pokemon*/
   background-color: rgb(121, 121, 216);
+  margin: 0px;
+  margin-top: 20px;
 }
 
 .poke-descricoes { /* Descrições, peso, tipo e altura. */
   background-color: bisque;
+  width: 400px;
 }
 
 .poke-sprite { /*sprite dos pokemons*/
@@ -63,4 +66,14 @@
 
 .poke-descri-sprite {
   display: flex;
+}
+
+.tipo1 {
+  border-radius: 10px;
+  width: 75px;
+  text-align: center;
+}
+
+.nome-tipo {
+  margin-right: 360px;
 }

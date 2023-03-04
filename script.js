@@ -13,7 +13,11 @@ function pokeapi(e) {
     }).then((data) => {
       document.querySelector('#caixaPokemon').innerHTML = `
       <div class="container-caixaPokemon">
+
+      <div class="nome-tipo"> 
       <h1 class="nome-poke">${data.name}</h1>
+      <p class="tipo1">${data.types[0].type.name} </p>
+      </div>
 
       <div class="poke-imgs">
         <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto">
@@ -61,6 +65,10 @@ function pokeapi(e) {
       </div>
     </div>
       `;
+      
+      if (data.types[0].type.name === 'normal') {
+        document.querySelector('.tipo1').style.backgroundColor = '#A4ACAF'
+      }
 
       data.sprites.other['official-artwork'].front_default.classList.add("fotopoke");
     })
