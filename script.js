@@ -18,19 +18,21 @@ function pokeapi(e) {
       <div class="nome-tipo"> 
       <h1 class="nome-poke">${data.name}</h1>
       
+      </div>
+      
+      <div class="poke-imgs">
+      <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto">
+      <div class="poke-sprite">
+      <label><strong>Sprite:</strong></label>
+      <img src="${data.sprites.front_default}" alt="sprite">
+      </div> 
+      </div>
+      <div class="poke-tipos">
       ${data.types.length > 1 ? 
         `<p class="tipo1">${data.types[0].type.name} </p>` 
         + `<p class="tipo2">${data.types[1].type.name} </p>` 
         : `<p class="tipo1">${data.types[0].type.name} </p>`
       }
-      </div>
-
-      <div class="poke-imgs">
-        <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto">
-        <div class="poke-sprite">
-        <label><strong>Sprite:</strong></label>
-        <img src="${data.sprites.front_default}" alt="sprite">
-      </div> 
       </div>
       </div>
       <div class="infoPokemon">
@@ -83,7 +85,7 @@ function pokeapi(e) {
         document.querySelector('.tipo1').style.backgroundColor = '#6756B5'
       } else if (data.types[0].type.name === 'electric') {
         document.querySelector('.tipo1').style.backgroundColor = '#F9B718'
-        document.querySelector('.poke-tipo-nome-imgs').style.background = 'linear-gradient(#a77e1e, #f3b72b)'
+        document.querySelector('.poke-tipo-nome-imgs').style.background = 'linear-gradient(#f3b72b, #a77e1e)'
       } else if (data.types[0].type.name === 'fairy') {
         document.querySelector('.tipo1').style.backgroundColor = '#F0ABEE'
       } else if (data.types[0].type.name === 'fighting') {

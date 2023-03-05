@@ -18,8 +18,8 @@ body {
 }
 
 .poke-tipo-nome-imgs {
-  
-  height: 838px;
+  /*Aqui ta o background gradient*/
+  height: 823px;
   width: 435px;
   border-radius: 10px;
 }
@@ -85,16 +85,25 @@ body {
 
 .tipo1 {
   border-radius: 10px;
-  width: 75px;
+  height: 20px;
+  width: 80px;
   text-align: center;
 }
 
 .tipo2 {
   border-radius: 10px;
-  width: 75px;
+  height: 20px;
+  width: 80px;
   text-align: center;
 }
 
 .nome-tipo {
   margin-right: 360px;
+}
+
+.poke-tipos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
 }
