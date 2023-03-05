@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(197, 197, 197);
+}
+
 #caixaPokemon {
   display: flex;
   justify-content: center;
@@ -7,11 +11,17 @@
 
 .container-caixaPokemon {
   width: 500px;
-  background-color: green;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.poke-tipo-nome-imgs {
+  
+  height: 838px;
+  width: 435px;
+  border-radius: 10px;
 }
 
 .poke-imgs {
@@ -53,7 +63,12 @@
 }
 
 .infoPokemon {
-  width: 400px;
+  width: 435px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  border: 1px solid;
+  position: absolute;
+  margin-top: 400px;
 }
 
 .poke-habilidades {
@@ -69,6 +84,12 @@
 }
 
 .tipo1 {
+  border-radius: 10px;
+  width: 75px;
+  text-align: center;
+}
+
+.tipo2 {
   border-radius: 10px;
   width: 75px;
   text-align: center;

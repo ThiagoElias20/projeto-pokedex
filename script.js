@@ -14,10 +14,15 @@ function pokeapi(e) {
       document.querySelector('#caixaPokemon').innerHTML = `
       <div class="container-caixaPokemon">
 
+      <div class="poke-tipo-nome-imgs">
       <div class="nome-tipo"> 
       <h1 class="nome-poke">${data.name}</h1>
-      <p class="tipo1">${data.types[0].type.name} </p>
       
+      ${data.types.length > 1 ? 
+        `<p class="tipo1">${data.types[0].type.name} </p>` 
+        + `<p class="tipo2">${data.types[1].type.name} </p>` 
+        : `<p class="tipo1">${data.types[0].type.name} </p>`
+      }
       </div>
 
       <div class="poke-imgs">
@@ -26,6 +31,7 @@ function pokeapi(e) {
         <label><strong>Sprite:</strong></label>
         <img src="${data.sprites.front_default}" alt="sprite">
       </div> 
+      </div>
       </div>
       <div class="infoPokemon">
 
@@ -77,6 +83,7 @@ function pokeapi(e) {
         document.querySelector('.tipo1').style.backgroundColor = '#6756B5'
       } else if (data.types[0].type.name === 'electric') {
         document.querySelector('.tipo1').style.backgroundColor = '#F9B718'
+        document.querySelector('.poke-tipo-nome-imgs').style.background = 'linear-gradient(#a77e1e, #f3b72b)'
       } else if (data.types[0].type.name === 'fairy') {
         document.querySelector('.tipo1').style.backgroundColor = '#F0ABEE'
       } else if (data.types[0].type.name === 'fighting') {
@@ -103,7 +110,46 @@ function pokeapi(e) {
         document.querySelector('.tipo1').style.backgroundColor = '#8F8EA0'
       } else if (data.types[0].type.name === 'water') {
         document.querySelector('.tipo1').style.backgroundColor = '#1574CF'
-      }     
+      }  
+      
+      
+      if (data.types[1].type.name === 'normal') {
+        document.querySelector('.tipo2').style.backgroundColor = '#A4ACAF'
+      } else if (data.types[1].type.name === 'bug') {
+        document.querySelector('.tipo2').style.backgroundColor = '#89940A'
+      } else if (data.types[1].type.name === 'dark') {
+        document.querySelector('.tipo2').style.backgroundColor = '#3E2D23'
+      } else if (data.types[1].type.name === 'dragon') {
+        document.querySelector('.tipo2').style.backgroundColor = '#6756B5'
+      } else if (data.types[1].type.name === 'electric') {
+        document.querySelector('.tipo2').style.backgroundColor = '#F9B718'
+      } else if (data.types[1].type.name === 'fairy') {
+        document.querySelector('.tipo2').style.backgroundColor = '#F0ABEE'
+      } else if (data.types[1].type.name === 'fighting') {
+        document.querySelector('.tipo2').style.backgroundColor = '#141640'
+      } else if (data.types[1].type.name === 'fire') {
+        document.querySelector('.tipo2').style.backgroundColor = '#C72101'
+      } else if (data.types[1].type.name === 'flying') {
+        document.querySelector('.tipo2').style.backgroundColor = '#8D9EE8'
+      } else if (data.types[1].type.name === 'ghost') {
+        document.querySelector('.tipo2').style.backgroundColor = '#474896'
+      } else if (data.types[1].type.name === 'grass') {
+        document.querySelector('.tipo2').style.backgroundColor = '#2B570E'
+      } else if (data.types[1].type.name === 'ground') {
+        document.querySelector('.tipo2').style.backgroundColor = '#D2AF55'
+      } else if (data.types[1].type.name === 'ice') {
+        document.querySelector('.tipo2').style.backgroundColor = '#EA467F'
+      } else if (data.types[1].type.name === 'poison') {
+        document.querySelector('.tipo2').style.backgroundColor = '#752C77'
+      } else if (data.types[1].type.name === 'psychic') {
+        document.querySelector('.tipo2').style.backgroundColor = '#E64078'
+      } else if (data.types[1].type.name === 'rock') {
+        document.querySelector('.tipo2').style.backgroundColor = '#9B8638'
+      } else if (data.types[1].type.name === 'steel') {
+        document.querySelector('.tipo2').style.backgroundColor = '#8F8EA0'
+      } else if (data.types[1].type.name === 'water') {
+        document.querySelector('.tipo2').style.backgroundColor = '#1574CF'
+      }
     
 
       data.sprites.other['official-artwork'].front_default.classList.add("fotopoke");
@@ -112,6 +158,7 @@ function pokeapi(e) {
       console.error("Pokemon not found", err);
     });
 
+    /* Comentando por enquanto
     for (let i = 1; i < 200; i++) {
       (function (i) {
         fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
@@ -143,7 +190,7 @@ function pokeapi(e) {
 
 
     }
-
+*/
  //Proximo passo é ordenar a listagem
 
 }
