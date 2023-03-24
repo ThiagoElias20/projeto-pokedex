@@ -15,6 +15,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .poke-tipo-nome-imgs {
@@ -27,6 +28,7 @@ body {
 .poke-imgs {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .listul { /*ul das listas dos pokemons*/
@@ -34,7 +36,6 @@ body {
 }
 
 .poke-foto { /*Foto do pokemon*/
-  background-color: greenyellow;
   width: 300px;
   height: 300px;
 }
@@ -48,13 +49,16 @@ body {
 .poke-descricoes { /* Descrições, peso, tipo e altura. */
   background-color: bisque;
   width: 400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
 
 .poke-sprite { /*sprite dos pokemons*/
   background-color: blueviolet;
   width: 96px;
   height: 110px;
-
 }
 
 .poke-sprite img {

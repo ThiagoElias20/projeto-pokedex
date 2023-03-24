@@ -75,90 +75,37 @@ function pokeapi(e) {
     </div>
       `;
       
-      if (data.types[0].type.name === 'normal') {
-        document.querySelector('.tipo1').style.backgroundColor = '#A4ACAF'
-      } else if (data.types[0].type.name === 'bug') {
-        document.querySelector('.tipo1').style.backgroundColor = '#89940A'
-      } else if (data.types[0].type.name === 'dark') {
-        document.querySelector('.tipo1').style.backgroundColor = '#3E2D23'
-      } else if (data.types[0].type.name === 'dragon') {
-        document.querySelector('.tipo1').style.backgroundColor = '#6756B5'
-      } else if (data.types[0].type.name === 'electric') {
-        document.querySelector('.tipo1').style.backgroundColor = '#F9B718'
-        document.querySelector('.poke-tipo-nome-imgs').style.background = 'linear-gradient(#f3b72b, #a77e1e)'
-      } else if (data.types[0].type.name === 'fairy') {
-        document.querySelector('.tipo1').style.backgroundColor = '#F0ABEE'
-      } else if (data.types[0].type.name === 'fighting') {
-        document.querySelector('.tipo1').style.backgroundColor = '#141640'
-      } else if (data.types[0].type.name === 'fire') {
-        document.querySelector('.tipo1').style.backgroundColor = '#C72101'
-      } else if (data.types[0].type.name === 'flying') {
-        document.querySelector('.tipo1').style.backgroundColor = '#8D9EE8'
-      } else if (data.types[0].type.name === 'ghost') {
-        document.querySelector('.tipo1').style.backgroundColor = '#474896'
-      } else if (data.types[0].type.name === 'grass') {
-        document.querySelector('.tipo1').style.backgroundColor = '#2B570E'
-      } else if (data.types[0].type.name === 'ground') {
-        document.querySelector('.tipo1').style.backgroundColor = '#D2AF55'
-      } else if (data.types[0].type.name === 'ice') {
-        document.querySelector('.tipo1').style.backgroundColor = '#EA467F'
-      } else if (data.types[0].type.name === 'poison') {
-        document.querySelector('.tipo1').style.backgroundColor = '#752C77'
-      } else if (data.types[0].type.name === 'psychic') {
-        document.querySelector('.tipo1').style.backgroundColor = '#E64078'
-      } else if (data.types[0].type.name === 'rock') {
-        document.querySelector('.tipo1').style.backgroundColor = '#9B8638'
-      } else if (data.types[0].type.name === 'steel') {
-        document.querySelector('.tipo1').style.backgroundColor = '#8F8EA0'
-      } else if (data.types[0].type.name === 'water') {
-        document.querySelector('.tipo1').style.backgroundColor = '#1574CF'
-      }  
-      
-      
-      if (data.types[1].type.name === 'normal') {
-        document.querySelector('.tipo2').style.backgroundColor = '#A4ACAF'
-      } else if (data.types[1].type.name === 'bug') {
-        document.querySelector('.tipo2').style.backgroundColor = '#89940A'
-      } else if (data.types[1].type.name === 'dark') {
-        document.querySelector('.tipo2').style.backgroundColor = '#3E2D23'
-      } else if (data.types[1].type.name === 'dragon') {
-        document.querySelector('.tipo2').style.backgroundColor = '#6756B5'
-      } else if (data.types[1].type.name === 'electric') {
-        document.querySelector('.tipo2').style.backgroundColor = '#F9B718'
-      } else if (data.types[1].type.name === 'fairy') {
-        document.querySelector('.tipo2').style.backgroundColor = '#F0ABEE'
-      } else if (data.types[1].type.name === 'fighting') {
-        document.querySelector('.tipo2').style.backgroundColor = '#141640'
-      } else if (data.types[1].type.name === 'fire') {
-        document.querySelector('.tipo2').style.backgroundColor = '#C72101'
-      } else if (data.types[1].type.name === 'flying') {
-        document.querySelector('.tipo2').style.backgroundColor = '#8D9EE8'
-      } else if (data.types[1].type.name === 'ghost') {
-        document.querySelector('.tipo2').style.backgroundColor = '#474896'
-      } else if (data.types[1].type.name === 'grass') {
-        document.querySelector('.tipo2').style.backgroundColor = '#2B570E'
-      } else if (data.types[1].type.name === 'ground') {
-        document.querySelector('.tipo2').style.backgroundColor = '#D2AF55'
-      } else if (data.types[1].type.name === 'ice') {
-        document.querySelector('.tipo2').style.backgroundColor = '#EA467F'
-      } else if (data.types[1].type.name === 'poison') {
-        document.querySelector('.tipo2').style.backgroundColor = '#752C77'
-      } else if (data.types[1].type.name === 'psychic') {
-        document.querySelector('.tipo2').style.backgroundColor = '#E64078'
-      } else if (data.types[1].type.name === 'rock') {
-        document.querySelector('.tipo2').style.backgroundColor = '#9B8638'
-      } else if (data.types[1].type.name === 'steel') {
-        document.querySelector('.tipo2').style.backgroundColor = '#8F8EA0'
-      } else if (data.types[1].type.name === 'water') {
-        document.querySelector('.tipo2').style.backgroundColor = '#1574CF'
-      }
-    
+      const corMedia = getComputedStyle(document.querySelector(".poke-foto")).backgroundColor;
+      console.log(corMedia);
 
-      data.sprites.other['official-artwork'].front_default.classList.add("fotopoke");
+      
+
     })
+
     .catch((err) => {
       console.error("Pokemon not found", err);
     });
+
+    const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${nome}`;
+
+    fetch(pokemonUrl)
+    .then(response => response.json())
+    .then(data => {
+    // Pegar o número do Pokémon a partir da URL
+    const pokemonNumber = data.id;
+
+    // Montar a URL da imagem usando o número do Pokémon
+    const pokemonImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonNumber}.png`;
+
+    // Fazer o fetch da imagem e definir como plano de fundo
+      fetch(pokemonImageUrl)
+      .then(response => response.blob())
+      .then(blob => {
+        const imagemBlobUrl = URL.createObjectURL(blob);
+        document.querySelector(".poke-foto").style.backgroundImage = `url('${imagemBlobUrl}')`;
+      });
+  })
+  .catch(error => console.error(error));
 
     /* Comentando por enquanto
     for (let i = 1; i < 200; i++) {
