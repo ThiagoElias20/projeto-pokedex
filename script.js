@@ -43,11 +43,11 @@ function pokeapi(e) {
 
         <div class="poke-descri-sprite"> 
         <div class="poke-descricoes">
-        <h1>Descrição</h1>
+        <p id="textosabor"></p>
+        <hr>
         <p>Peso: ${data.weight / 10}kg</p>
         <p>Tipo: ${data.types[0].type.name}</p>
         <p id="alturaPokemon">Altura: ${data.height / 10} metros</p> 
-
         <p>Habilidades:</p>
         <ul>
           <li>${data.abilities[0].ability.name}</li>
@@ -201,9 +201,16 @@ function pokeapi(e) {
       console.error("Pokemon not found", err);
     });
 
-    const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${nome}`;
-
+    
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${nome}`)
+    .then(response => response.json())
+    .then(data => {
+      let textosabor = document.getElementById("textosabor").innerHTML = `
+      <p id="textosabor">${data.flavor_text_entries[0].flavor_text}</p>
+      `
+    })   
     //PARA EDIÇÃO---------------------------------------------------------------------------------------
+    const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${nome}`;
     fetch(pokemonUrl)
     .then(response => response.json())
     .then(data => {
