@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(197, 197, 197);
+  background-color: white;
 }
 
 #caixaPokemon {
@@ -20,7 +20,7 @@ body {
 
 .poke-tipo-nome-imgs {
   /*Aqui ta o background gradient*/
-  height: 823px;
+  height: 390px;
   width: 435px;
   border-radius: 10px;
 }
@@ -71,8 +71,6 @@ body {
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   border: 1px solid;
-  position: absolute;
-  margin-top: 400px;
 }
 
 .poke-habilidades {
@@ -108,6 +106,10 @@ body {
 .poke-tipos {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 35px;
+}
+
+.id-poke p {
+  color: #919191;
 }
