@@ -47,12 +47,22 @@ body {
 }
 
 .poke-descricoes { /* Descrições, peso, tipo e altura. */
-  background-color: bisque;
-  width: 400px;
+  background-color: white;
+  width: 435px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+}
+
+.poke-descricoes hr {
+  border: 1px solid #F2F2F2;
+  width: 422px;
+}
+
+#textosabor {
+  color: #444444;
+  margin-bottom: 5px;
 }
 
 .poke-sprite { /*sprite dos pokemons*/
