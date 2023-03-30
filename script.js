@@ -16,11 +16,7 @@ function pokeapi(e) {
  
       <div class="poke-tipo-nome-imgs">
       <div class="poke-imgs">
-      <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto">
-      <div class="poke-sprite">
-      <label><strong>Sprite:</strong></label>
-      <img src="${data.sprites.front_default}" alt="sprite">
-      </div> 
+      <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto"> 
       </div>
       <div class="cabec-poke"> 
       <h1 class="nome-poke">${data.name}</h1>
@@ -74,6 +70,19 @@ function pokeapi(e) {
         `<li id="movespoke">${data.moves[3].move.name}</li>`
          : ''}
         </ul>
+        </div>
+        <div class="div-sprite">
+        <div class="poke-sprite">
+           <img src="${data.sprites.front_default}" alt="sprite">
+        </div>
+        <div class="div-id-nome-sprite">
+        <p class="id-nome-poke">${data.name}</p>
+        <div class="id-nome-poke2">${data.id < 10 ? `<p>#000${data.id}</p>` 
+      : data.id < 100 && data.id >= 10  ? `<p>#00${data.id}</p>` 
+      : data.id >= 100 && data.id <= 999 ? `<p>#0${data.id}</p>` 
+      : data.id >= 1000 ? `<p>#${data.id}</p>` : `<p>Sem ID</p>`}
+       </div>
+        </div>
         </div>
       </div>
     </div>
