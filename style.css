@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 body {
   background-color: white;
+  font-family: 'Poppins', sans-serif;
 }
 
 #caixaPokemon {
@@ -81,6 +84,7 @@ body {
 
 .sprite-nome {
   margin: 0px;
+  font-size: large;
 }
 
 .poke-sprite { /*sprite dos pokemons*/
