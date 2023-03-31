@@ -71,6 +71,9 @@ function pokeapi(e) {
          : ''}
         </ul>
         </div>
+        <div class="container-sprite">
+        <h1 class="sprite-nome">Sprite</h1>
+        <hr>
         <div class="div-sprite">
         <div class="poke-sprite">
            <img src="${data.sprites.front_default}" alt="sprite">
@@ -82,6 +85,11 @@ function pokeapi(e) {
       : data.id >= 100 && data.id <= 999 ? `<p>#0${data.id}</p>` 
       : data.id >= 1000 ? `<p>#${data.id}</p>` : `<p>Sem ID</p>`}
        </div>
+        </div>
+        
+        
+        
+        
         </div>
         </div>
       </div>
