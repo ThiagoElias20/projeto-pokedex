@@ -21,7 +21,7 @@ function pokeapi(e) {
       </div>
       
       <div class="poke-imgs">
-      <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto">
+      <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto" id="poke-foto">
       <div class="poke-sprite">
       <label><strong>Sprite:</strong></label>
       <img src="${data.sprites.front_default}" alt="sprite">
@@ -75,10 +75,21 @@ function pokeapi(e) {
     </div>
       `;
       
-      const corMedia = getComputedStyle(document.querySelector(".poke-foto")).backgroundColor;
-      console.log(corMedia);
 
       
+      const colorThief = new ColorThief();
+      const img = document.querySelector('.poke-foto');
+  
+      // Make sure image is finished loading
+      if (img.complete) {
+        colorThief.getColor(img);
+      } else {
+        img.addEventListener('load', function() {
+          colorThief.getColor(img);
+        });
+      }
+    
+
 
     })
 
@@ -86,26 +97,8 @@ function pokeapi(e) {
       console.error("Pokemon not found", err);
     });
 
-    const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${nome}`;
 
-    fetch(pokemonUrl)
-    .then(response => response.json())
-    .then(data => {
-    // Pegar o número do Pokémon a partir da URL
-    const pokemonNumber = data.id;
-
-    // Montar a URL da imagem usando o número do Pokémon
-    const pokemonImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonNumber}.png`;
-
-    // Fazer o fetch da imagem e definir como plano de fundo
-      fetch(pokemonImageUrl)
-      .then(response => response.blob())
-      .then(blob => {
-        const imagemBlobUrl = URL.createObjectURL(blob);
-        document.querySelector(".poke-foto").style.backgroundImage = `url('${imagemBlobUrl}')`;
-      });
-  })
-  .catch(error => console.error(error));
+    
 
     /* Comentando por enquanto
     for (let i = 1; i < 200; i++) {
