@@ -16,7 +16,8 @@ function pokeapi(e) {
  
       <div class="poke-tipo-nome-imgs">
       <div class="poke-imgs">
-      <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto"> 
+      <div class="backpoke-imgs"></div>
+      <img src="${data.sprites.other['official-artwork'].front_default}" alt="pokemon" class="poke-foto">
       </div>
       <div class="cabec-poke"> 
       <h1 class="nome-poke">${data.name}</h1>
@@ -96,6 +97,66 @@ function pokeapi(e) {
     </div>
       `;
       
+      if (data.types[0].type.name === 'normal') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(168, 167, 122)';
+      } else if (data.types[0].type.name === 'fighting') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(191, 48, 34)';
+      } else if (data.types[0].type.name === 'flying') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(155, 197, 218)';
+      } else if (data.types[0].type.name === 'poison') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(160, 64, 160)';
+      } else if (data.types[0].type.name === 'ground') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(226, 191, 101)';
+      } else if (data.types[0].type.name === 'rock') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(182, 161, 54)';
+      } else if (data.types[0].type.name === 'bug') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(141, 168, 47)';
+      } else if (data.types[0].type.name === 'ghost') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(100, 78, 136)';
+      } else if (data.types[0].type.name === 'steel') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(183, 183, 206)';
+      } else if (data.types[0].type.name === 'fire') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(253, 127, 44)';
+      } else if (data.types[0].type.name === 'water') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(84, 160, 255)';
+      } else if (data.types[0].type.name === 'grass') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(121, 196, 81)';
+      } else if (data.types[0].type.name === 'electric') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(255, 225, 73)';
+      } else if (data.types[0].type.name === 'psychic') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(253, 85, 145)';
+      } else if (data.types[0].type.name === 'ice') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(113, 209, 225)';
+      } else if (data.types[0].type.name === 'dragon') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(117, 103, 243)';
+      } else if (data.types[0].type.name === 'fairy') {
+        let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(233, 141, 243)';
+      } else if (data.types[0].type.name === 'dark') {
+         let tipo1 = document.querySelector(".backpoke-imgs");
+        tipo1.style.backgroundColor = 'rgb(64, 40, 64)';
+      }
+
+
+
+
+
 
       if (data.types[0].type.name === 'normal') {
         let tipo1 = document.querySelector(".tipo1");
@@ -225,7 +286,7 @@ function pokeapi(e) {
       <p id="textosabor">${data.flavor_text_entries[0].flavor_text}</p>
       `
     })   
-    //PARA EDIÇÃO---------------------------------------------------------------------------------------
+    /*PARA EDIÇÃO---------------------------------------------------------------------------------------
     const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${nome}`;
     fetch(pokemonUrl)
     .then(response => response.json())
@@ -245,9 +306,9 @@ function pokeapi(e) {
       });
   })
   .catch(error => console.error(error));
+  PARA EDIÇÃO----------------------------------------------------------------------------------------------
 
-  //PARA EDIÇÃO----------------------------------------------------------------------------------------------
-
+  */
     /* Comentando por enquanto
     for (let i = 1; i < 200; i++) {
       (function (i) {

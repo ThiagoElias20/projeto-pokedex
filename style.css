@@ -18,20 +18,37 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+  border: 1px solid;
+  border-radius: 10px;
 }
 
 .poke-tipo-nome-imgs {
   /*Aqui ta o background gradient*/
   height: 390px;
-  width: 435px;
-  border-radius: 10px;
+  width: 500px;
 }
 
 .poke-imgs {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  border-radius: 10px;
+}
+
+.backpoke-imgs {
+  position: absolute;
+  width: 500px;
+  height: 225px;
+  border-bottom-left-radius: 300px;
+  border-bottom-right-radius: 300px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-image: url(/img/pokeball.png);
+}
+
+.backpoke-imgs img {
+  height: 100px;
+  width: 100px;
 }
 
 .listul { /*ul das listas dos pokemons*/
@@ -39,8 +56,9 @@ body {
 }
 
 .poke-foto { /*Foto do pokemon*/
-  width: 300px;
-  height: 300px;
+  width: 285px;
+  height: 285px;
+  position: absolute;
 }
 
 .nome-poke { /* h1 Nome do pokemon*/
@@ -49,6 +67,7 @@ body {
   margin-top: 20px;
   display: flex;
   justify-content: center;
+  margin-top: 300px;
 }
 
 .poke-descricoes { /* Descrições, peso, tipo e altura. */
