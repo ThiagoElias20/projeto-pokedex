@@ -42,8 +42,16 @@ function pokeapi(e) {
         <div class="poke-descricoes">
         <p id="textosabor"></p>
         <hr>
-        <p>Peso: ${data.weight / 10}kg</p>
-        <p id="alturaPokemon">Altura: ${data.height / 10}m</p>
+        <div class="peso-altura">
+        <div class="peso">
+        <label>Peso</label>
+        <p> ${data.weight / 10}kg</p>
+        </div>
+        <div class="altura">
+        <label>Altura</label>
+        <p id="alturaPokemon">${data.height / 10}m</p>
+        </div>
+        </div>
 
         <div class="habil-ataqs">
         <div class="div-habil">
@@ -58,7 +66,6 @@ function pokeapi(e) {
         <h1>Ataques iniciais</h1>
         <ul>
         <li id="movespoke">${data.moves[0].move.name}</li>
-
         ${data.moves.length > 1 ? 
         `<li id="movespoke">${data.moves[1].move.name}</li>` +
         `<li id="movespoke">${data.moves[2].move.name}</li>` +

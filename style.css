@@ -208,11 +208,24 @@ body {
   background-color: green;
 }
 
-.div-habil ul {
-  background-color: green;
-}
-
 .habil-ataqs {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+}
+
+.habil-ataqs h1 {
+  font-size: large;
+}
+
+.peso-altura {
+  display: flex;
+  justify-content: space-around;
+}
+
+#alturaPokemon {
+  border: 1px solid;
+}
+
+.peso p {
+  border: 1px solid;
 }
