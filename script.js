@@ -43,8 +43,10 @@ function pokeapi(e) {
         <p id="textosabor"></p>
         <hr>
         <p>Peso: ${data.weight / 10}kg</p>
-        <p>Tipo: ${data.types[0].type.name}</p>
-        <p id="alturaPokemon">Altura: ${data.height / 10} metros</p> 
+        <p id="alturaPokemon">Altura: ${data.height / 10}m</p>
+
+        <div class="habil-ataqs">
+        <div class="div-habil">
         <p>Habilidades:</p>
         <ul>
           <li>${data.abilities[0].ability.name}</li>
@@ -52,14 +54,6 @@ function pokeapi(e) {
         `<li id="movespoke">${data.abilities[1].ability.name}</li>` : ''}
         </ul>
         </div>
-
-         
-        
-        
-        </div>
-         
-
-
         <div class="poke-ataques">
         <h1>Ataques iniciais</h1>
         <ul>
@@ -72,6 +66,20 @@ function pokeapi(e) {
          : ''}
         </ul>
         </div>
+        
+        
+        
+        
+        </div>
+        </div>
+
+         
+        
+        
+        </div>
+         
+
+
         <div class="container-sprite">
         <h1 class="sprite-nome">Sprite</h1>
         <hr>
@@ -283,7 +291,7 @@ function pokeapi(e) {
     .then(response => response.json())
     .then(data => {
       let textosabor = document.getElementById("textosabor").innerHTML = `
-      <p id="textosabor">${data.flavor_text_entries[0].flavor_text}</p>
+      <p id="textosabor">${data.flavor_text_entries[1].flavor_text}</p>
       `
     })   
     /*PARA EDIÇÃO---------------------------------------------------------------------------------------
