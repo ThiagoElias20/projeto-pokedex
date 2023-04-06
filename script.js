@@ -45,17 +45,17 @@ function pokeapi(e) {
         <div class="peso-altura">
         <div class="peso">
         <label>Peso</label>
-        <p> ${data.weight / 10}kg</p>
+        <p> ${data.weight / 10} kg</p>
         </div>
         <div class="altura">
         <label>Altura</label>
-        <p id="alturaPokemon">${data.height / 10}m</p>
+        <p id="alturaPokemon">${data.height / 10} m</p>
         </div>
         </div>
 
         <div class="habil-ataqs">
         <div class="div-habil">
-        <p>Habilidades:</p>
+        <label>Habilidades</label>
         <ul>
           <li>${data.abilities[0].ability.name}</li>
           ${data.abilities.length > 1 ? 
@@ -63,7 +63,7 @@ function pokeapi(e) {
         </ul>
         </div>
         <div class="poke-ataques">
-        <h1>Ataques iniciais</h1>
+        <label>Ataques iniciais</label>
         <ul>
         <li id="movespoke">${data.moves[0].move.name}</li>
         ${data.moves.length > 1 ? 
